@@ -13,7 +13,7 @@ require_once dirname(__FILE__) . '/midtrans-php-master/Midtrans.php';
 //SAMPLE REQUEST START HERE
 
 // Set your Merchant Server Key
-\Midtrans\Config::$serverKey = 'SB-Mid-server-MkWPtSUBmoSSOJ4UkdcyilCC';
+\Midtrans\Config::$serverKey = '< Your Server Key >';
 // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
 \Midtrans\Config::$isProduction = false;
 // Set sanitization on (default)
@@ -24,7 +24,7 @@ require_once dirname(__FILE__) . '/midtrans-php-master/Midtrans.php';
 include "../koneksi.php";
 
 $order_id = rand();
-$name = $_POST['name'];
+$name = $_POST['name'] . ' ' . $_POST['last_name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $items_details = $_POST['items'];
@@ -35,7 +35,6 @@ $result = $koneksi->query($query);
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
     $params = array(
         'transaction_details' => array(
             'order_id' => $order_id,

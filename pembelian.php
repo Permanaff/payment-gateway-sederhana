@@ -48,7 +48,7 @@ $data = $result->fetch_all(MYSQLI_ASSOC);
                         $product_id = $product['id'];
                         $images = $koneksi->query("SELECT image FROM products WHERE id = '$product_id'");
                         $image = $images->fetch_assoc();
-                    ?>
+                    ?> 
                     <hr class="my-3">
                     <div class="row">
                         <div class="col-2 pe-0">
@@ -56,7 +56,7 @@ $data = $result->fetch_all(MYSQLI_ASSOC);
                         </div>
                         <div class="col-7">
                             <p class="mb-0 fw-medium"><?php echo $product['name']?></p>
-                            <p class="mb-0">x 3</p>
+                            <p class="mb-0">x <?php echo $product['quantity']?></p>
                         </div>
                         <div class="col-3 text-end align-self-center">
                             <p class="mb-0">Rp <?php echo number_format($product['price'], 0, ',', '.'); ?></p>
@@ -65,8 +65,8 @@ $data = $result->fetch_all(MYSQLI_ASSOC);
                     <?php endforeach; ?>
                     <hr class="my-3">
                     <div class="row mb-2 text-end ">
-                        <div class="col-8 fs-6 align-self-center">Subtotal</div>
-                        <div class="col-4 align-self-center text-end fw-medium fs-5">
+                        <div class="col-9 fs-6 align-self-center">Subtotal</div>
+                        <div class="col-3 align-self-center text-end fw-medium fs-5">
                             Rp  <?php echo number_format($row['subtotal'], 0, ',', '.'); ?>
                         </div>
                     </div>

@@ -2,6 +2,10 @@
 include 'koneksi.php';
 
 
+// $keranjang = "SELECT cart.*, products.name, products.price, products.image
+//               FROM cart
+//               INNER JOIN products ON cart.id_barang = products.id";
+
 $keranjang = "SELECT cart.*, products.name, products.price, products.image
               FROM cart
               INNER JOIN products ON cart.id_barang = products.id";
@@ -32,6 +36,7 @@ foreach ($rows as $row) {
 };
 
 $items = json_encode($dataBarang);
+
 
 
 ?>
@@ -93,8 +98,8 @@ $items = json_encode($dataBarang);
                             <div class="card-body">
                                 <div class="row mx-1">
                                     <a href="" style="text-decoration: none;">
-                                        <i class="bi bi-cart" style="color: #000;">
-                                            <p class="fs-4 text fw-medium text-start">Cart</p>
+                                        <i class="bi bi-cart fs-4 text fw-medium text-star" style="color: #000; width= 100px; height: 100px;">
+                                            Cart
                                         </i>
                                     </a>
                                     
